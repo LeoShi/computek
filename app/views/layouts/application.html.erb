@@ -36,21 +36,21 @@
   </head>
   <body>
 
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
+          <!--<a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+          <!--</a>-->
           <a class="brand" href="#">Computek</a>
           <div class="container nav-collapse">
-            <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
-            </ul>
+            <!--<ul class="nav">-->
+              <!--<li><%= link_to "Link1", "/path1"  %></li>-->
+              <!--<li><%= link_to "Link2", "/path2"  %></li>-->
+              <!--<li><%= link_to "Link3", "/path3"  %></li>-->
+            <!--</ul>-->
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -58,9 +58,6 @@
 
     <div class="container">
         <div class="row">
-          <div class="span9">
-             <%= yield %>
-          </div>
           <div class="span3">
             <div class="well sidebar-nav">
               <h3>Sidebar</h3>
@@ -72,10 +69,13 @@
               </ul>
             </div><!--/.well -->
           </div><!--/span-->
+          <div class="span9">
+             <%= yield %>
+          </div>
         </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2012</p>
+        <p>&copy; Computek 2012</p>
       </footer>
 
     </div> <!-- /container -->
