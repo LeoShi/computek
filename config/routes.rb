@@ -1,4 +1,7 @@
 Computek::Application.routes.draw do
+  resources :users, :only => [:create]
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
