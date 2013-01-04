@@ -1,6 +1,5 @@
 Computek::Application.routes.draw do
-  get "reports" => 'reports#index'
-
+  resources :incidents, :only => [:create, :index]
   resources :users, :only => [:create]
 
 

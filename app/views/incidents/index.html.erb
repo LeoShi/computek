@@ -1,0 +1,27 @@
+<h2>INCIDENT REPORT</h2>
+<table class="table table-bordered table-hover table-striped">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Requestor</th>
+      <th>Location</th>
+      <th>Status</th>
+      <th>Handling Officer</th>
+      <th>DateTime</th>
+      <th>Reference</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @incidents.each do |incident| %>
+    <tr>
+      <td><%= incident.category %></td>
+      <td><%= incident.user.name %></td>
+      <td><%= incident.location.street %></td>
+      <td>Open</td>
+      <td>Srg. Kokore</td>
+      <td><%= incident.updated_at %></td>
+      <td><%= incident.reference %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

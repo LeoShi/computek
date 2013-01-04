@@ -18,3 +18,10 @@ footer p {
     margin-right: auto;
     text-align: center;
 }
+
+.navbar img {
+    float: left;
+}
+.navbar .brand {
+    margin-top: 15px;
+}

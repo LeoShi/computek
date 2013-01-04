@@ -10,10 +10,16 @@ describe Incident do
                         :location_attributes => {:latitude => "-26.1940509", :longitude => "28.0359692",
                                                  :street => "17 Melle Street, Johannesburg 2000, South Africa"}}
     end
-    it "should create location" do
-      incident = Incident.create(@valid_incident_data)
 
+    subject(:incident) {Incident.create(@valid_incident_data)}
+
+    it {should be_valid}
+    it "should create location" do
       expect(incident.location.latitude).to eq("-26.1940509")
+    end
+    it "should generate reference properly" do
+      incident.reference.length.should eq(13)
+      incident.reference.should start_with("HSB")
     end
   end
 
