@@ -25,6 +25,7 @@ gem 'yajl-ruby'
 
 group :test, :development do
   gem 'rspec-rails'
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 group :assets do
