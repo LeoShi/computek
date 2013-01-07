@@ -41,8 +41,9 @@ end
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Deploy with Capistrano
-# gem 'capistrano'
+#Deploy with Capistrano
+gem 'capistrano'
+gem 'passenger'
 
 # To use debugger
 # gem 'debugger'
