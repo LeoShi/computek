@@ -5,3 +5,6 @@
 require File.expand_path('../config/application', __FILE__)
 
 Computek::Application.load_tasks
+
+require File.expand_path('../build/infra', __FILE__)
+
