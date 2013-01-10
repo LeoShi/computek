@@ -1,7 +1,7 @@
 class Incident < ActiveRecord::Base
   CATEGORY = {"House Break in" => "HSB"}
 
-  attr_accessible :category, :user, :status, :reference, :location_attributes, :location
+  attr_accessible :category, :user, :status, :reference, :location_attributes, :location, :user_id
   belongs_to :user
   has_one :location
   accepts_nested_attributes_for :location

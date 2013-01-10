@@ -3,7 +3,7 @@ require 'spec_helper'
 describe IncidentsController do
 
   describe "POST 'create'" do
-    let(:valid_incident_data) { {:category => "House Break in", :user => stub_model(User),
+    let(:valid_incident_data) { {:category => "House Break in", :user_id => create(:user).id,
                            :location_attributes => {:latitude => "-26.1940509", :longitude => "28.0359692",
                                                     :street => "17 Melle Street, Johannesburg 2000, South Africa"}}}
     let(:invalid_incident_data) { {:category => "House Break in", :user => stub_model(User)}}
