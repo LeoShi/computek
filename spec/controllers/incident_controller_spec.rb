@@ -36,7 +36,8 @@ describe IncidentsController do
 
     it "assign all incidents to @incidents" do
       stub_result = [stub_model(Incident)]
-      Incident.stub(:all) { stub_result }
+      stub_result.stub(:order) { stub_result }
+      Incident.stub(:page) { stub_result }
       get :index
       expect(assigns(:incidents)).to eq(stub_result)
     end

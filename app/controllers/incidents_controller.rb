@@ -1,6 +1,6 @@
 class IncidentsController < ApplicationController
   def index
-    @incidents = Incident.all
+    @incidents = Incident.page(params[:page]).order('updated_at DESC')
   end
 
   def create

@@ -10,6 +10,8 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+WillPaginate.per_page = 20
+
 module Computek
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
