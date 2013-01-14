@@ -1,5 +1,9 @@
 class Incident < ActiveRecord::Base
-  CATEGORY = {"House Break in" => "HSB"}
+  CATEGORY = {"House Break in" => "HSB", "Domestic Violence" => "DOV",
+              "Hijack" => "HIJ", "Suspects" => "SUS",
+              "Animal abuse" => "AAB", "Shooting" => "SHO",
+              "Murder" => "MUR", "Illegal Firearm" => "ILF",
+              "Drug Dealing" => "DRD", "Drug Use" => "DRU"}
 
   attr_accessible :category, :user, :status, :reference, :location_attributes, :location, :user_id
   belongs_to :user

@@ -8,17 +8,24 @@ describe IncidentsController do
                                                     :street => "17 Melle Street, Johannesburg 2000, South Africa"}}}
     let(:invalid_incident_data) { {:category => "House Break in", :user => stub_model(User)}}
 
-    it "with success" do
-      post 'create', {:incident => valid_incident_data, :format => :json}
-      response.should be_success
-      response.body["reference"].should_not be_empty
+    ['House Break in,HSB','Domestic Violence,DOV',
+     'Hijack,HIJ', 'Suspects,SUS',
+     'Animal abuse,AAB', 'Shooting,SHO',
+     'Murder,MUR', 'Illegal Firearm,ILF',
+     'Drug Dealing,DRD', 'Drug Use,DRU'].each do |item|
+      incident_name, abbr = item.split(',')
+      it "with '#{incident_name}'" do
+        post 'create', {:incident => valid_incident_data.merge(:category => incident_name), :format => :json}
+        response.should be_success
+        result = JSON.parse(response.body)
+        result["reference"].should start_with abbr
+      end
     end
 
     it "with failed" do
       post :create, {:incident => invalid_incident_data, :format => :json}
       response.status.should eq(422)
     end
-
   end
 
   describe "GET 'index'" do
