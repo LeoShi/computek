@@ -11,15 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130103193304) do
+ActiveRecord::Schema.define(:version => 20130120014846) do
 
   create_table "incidents", :force => true do |t|
     t.string   "category"
-    t.integer  "user_id"
+    t.integer  "mobile_user_id"
     t.string   "status"
     t.string   "reference"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "locations", :force => true do |t|
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20130103193304) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "users", :force => true do |t|
+  create_table "mobile_users", :force => true do |t|
     t.string   "name"
     t.string   "surname"
     t.string   "mobile_contact"

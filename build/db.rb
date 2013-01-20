@@ -3,7 +3,7 @@ namespace :db do
     create_db = "CREATE DATABASE IF NOT EXISTS #{db_name};"
     run_sql_cmd create_db, "Create database #{db_name} if not existed"
 
-    grand_privileges = "GRANT ALL PRIVILEGES ON #{db_name}.* TO '#{MYSQL.user.name}'@'#{MYSQL.address}' IDENTIFIED BY '#{MYSQL.user.password}'"
+    grand_privileges = "GRANT ALL PRIVILEGES ON #{db_name}.* TO '#{MYSQL.mobile_user.name}'@'#{MYSQL.address}' IDENTIFIED BY '#{MYSQL.mobile_user.password}'"
     run_sql_cmd grand_privileges, "Create database user and grant privileges"
   end
 

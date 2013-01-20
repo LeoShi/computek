@@ -16,9 +16,9 @@
     <% @incidents.each do |incident| %>
     <tr>
       <td><%= incident.category %></td>
-      <td><%= incident.user.name %></td>
+      <td><%= incident.mobile_user.name %></td>
       <td><%= incident.location.street %></td>
-      <td><%= incident.user.mobile_contact %></td>
+      <td><%= incident.mobile_user.mobile_contact %></td>
       <td>Open</td>
       <td>Srg. Kokore</td>
       <td><%= incident.updated_at %></td>

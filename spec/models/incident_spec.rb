@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe Incident do
   before (:each) do
-    @user = create(:user, :name => "user1")
+    @mobile_user = create(:mobile_user, :name => "user1")
   end
   describe "After create Incident successfully" do
     before (:each) do
-      @valid_incident_data = {:category => "House Break in", :user => @user,
+      @valid_incident_data = {:category => "House Break in", :mobile_user => @mobile_user,
                         :location_attributes => {:latitude => "-26.1940509", :longitude => "28.0359692",
                                                  :street => "17 Melle Street, Johannesburg 2000, South Africa"}}
     end
@@ -25,7 +25,7 @@ describe Incident do
 
   describe "should not create Incident" do
     before(:each) do
-      @invalid_incident_data = {:category => "House Break in", :user => @user}
+      @invalid_incident_data = {:category => "House Break in", :mobile_user => @mobile_user}
     end
     it "given data without location info" do
       incident = Incident.new(@invalid_incident_data)

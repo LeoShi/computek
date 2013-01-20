@@ -1,6 +1,6 @@
 Computek::Application.routes.draw do
   resources :incidents, :only => [:create, :index]
-  resources :users, :only => [:create]
+  resources :mobile_users, :only => [:create]
 
 
   # The priority is based upon order of creation:

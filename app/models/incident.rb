@@ -5,12 +5,12 @@ class Incident < ActiveRecord::Base
               "Murder" => "MUR", "Illegal Firearm" => "ILF",
               "Drug Dealing" => "DRD", "Drug Use" => "DRU"}
 
-  attr_accessible :category, :user, :status, :reference, :location_attributes, :location, :user_id
-  belongs_to :user
+  attr_accessible :category, :mobile_user, :mobile_user_id, :status, :reference, :location_attributes, :location
+  belongs_to :mobile_user
   has_one :location
   accepts_nested_attributes_for :location
 
-  validates_presence_of :location, :user, :category
+  validates_presence_of :location, :mobile_user, :category
   before_create :generate_reference_number
 
   private

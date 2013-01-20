@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :user do
+  factory :mobile_user do
     name "John"
     surname "Doe"
     mobile_contact "12344"

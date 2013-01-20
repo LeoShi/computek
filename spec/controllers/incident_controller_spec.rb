@@ -3,10 +3,10 @@ require 'spec_helper'
 describe IncidentsController do
 
   describe "POST 'create'" do
-    let(:valid_incident_data) { {:category => "House Break in", :user_id => create(:user).id,
+    let(:valid_incident_data) { {:category => "House Break in", :mobile_user_id => create(:mobile_user).id,
                            :location_attributes => {:latitude => "-26.1940509", :longitude => "28.0359692",
                                                     :street => "17 Melle Street, Johannesburg 2000, South Africa"}}}
-    let(:invalid_incident_data) { {:category => "House Break in", :user => stub_model(User)}}
+    let(:invalid_incident_data) { {:category => "House Break in", :mobile_user => stub_model(MobileUser)}}
 
     ['House Break in,HSB','Domestic Violence,DOV',
      'Hijack,HIJ', 'Suspects,SUS',

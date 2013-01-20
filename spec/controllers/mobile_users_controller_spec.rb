@@ -18,7 +18,7 @@ require 'spec_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-describe UsersController do
+describe MobileUsersController do
 
   # This should return the minimal set of attributes required to create a valid
   # User. As you add validations to User, be sure to
@@ -39,18 +39,18 @@ describe UsersController do
     describe "with valid params" do
       it "creates a new User" do
         expect {
-          post :create, {:user => valid_attributes}, valid_session
-        }.to change(User, :count).by(1)
+          post :create, {:mobile_user => valid_attributes}, valid_session
+        }.to change(MobileUser, :count).by(1)
       end
 
       it "assigns a newly created user as @user" do
-        post :create, {:user => valid_attributes}, valid_session
-        assigns(:user).should be_a(User)
-        assigns(:user).should be_persisted
+        post :create, {:mobile_user => valid_attributes}, valid_session
+        assigns(:mobile_user).should be_a(MobileUser)
+        assigns(:mobile_user).should be_persisted
       end
 
       it "return 201 http status code" do
-        post :create, {:user => valid_attributes, :format => :json}, valid_session
+        post :create, {:mobile_user => valid_attributes, :format => :json}, valid_session
         response.status.should eq 201
       end
     end
@@ -58,15 +58,15 @@ describe UsersController do
     describe "with invalid params" do
       it "assigns a newly created but unsaved user as @user" do
         # Trigger the behavior that occurs when invalid params are submitted
-        User.any_instance.stub(:save).and_return(false)
-        post :create, {:user => { "name" => "invalid value" }, :format => :json}, valid_session
-        assigns(:user).should be_a_new(User)
+        MobileUser.any_instance.stub(:save).and_return(false)
+        post :create, {:mobile_user => { "name" => "invalid value" }, :format => :json}, valid_session
+        assigns(:mobile_user).should be_a_new(MobileUser)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        User.any_instance.stub(:save).and_return(false)
-        post :create, {:user => { "name" => "invalid value" }, :format => :json}, valid_session
+        MobileUser.any_instance.stub(:save).and_return(false)
+        post :create, {:mobile_user => { "name" => "invalid value" }, :format => :json}, valid_session
         response.status.should eq(422)
       end
     end
