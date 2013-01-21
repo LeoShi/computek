@@ -1,0 +1,21 @@
+<div class="offset4">
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <fieldset>
+        <div class="control-group">
+          <div class="control-label"><%= f.label :email %></div>
+          <div class="controls"><%= f.email_field :email, :autofocus => true %></div>
+        </div>
+        <div class="control-group">
+          <div class="control-label"><%= f.label :password %></div>
+          <div class="controls"><%= f.password_field :password %></div>
+        </div>
+        <% if devise_mapping.rememberable? -%>
+        <label class="checkbox">
+          <%= f.check_box :remember_me %> Remember me
+        </label>
+        <% end -%>
+        <input type="submit" value="login" class="btn" />
+      </fieldset>
+  <% end%>
+</div>
+

@@ -28,16 +28,31 @@
           <%= image_tag 'star2.gif',:alt => 'South Africa Police Service'%>
           <a class="brand" href="#">SAPS SERVICE DESK</a>
           <div class="container nav-collapse">
-            <!--<ul class="nav">-->
-              <!--<li><%= link_to "Link1", "/path1"  %></li>-->
-              <!--<li><%= link_to "Link2", "/path2"  %></li>-->
-              <!--<li><%= link_to "Link3", "/path3"  %></li>-->
-            <!--</ul>-->
+            <% if user_signed_in?%>
+                <ul class="nav pull-right">
+                  <li><a><i class="icon-user"></i> Logged in as: <span id="top-nav-username">
+                      <%= current_user.email %>
+                    </span></a></li>
+                  <li class="divider-vertical"></li>
+                  <li><a href="/users/logout" >Logout</a></li>
+                </ul>
+            <% end %>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
-
+    <div class="container">
+      <% if flash[:alert] -%>
+          <div class="alert alert-error fade in">
+            <p class='error'><%=h flash[:alert] %></p>
+          </div>
+      <% end -%>
+      <% if flash[:notice] -%>
+          <div class="alert fade in">
+            <p class='notice'><%=h flash[:notice] %></p>
+          </div>
+      <% end -%>
+    </div>
     <div class="container">
         <div class="row">
           <!--<div class="span3">-->

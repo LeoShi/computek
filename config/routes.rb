@@ -1,4 +1,6 @@
 Computek::Application.routes.draw do
+  devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification' }
+
   resources :incidents, :only => [:create, :index]
   resources :mobile_users, :only => [:create]
 
@@ -52,7 +54,7 @@ Computek::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'incidents#index'
 
   # See how all your routes lay out with "rake routes"
 
