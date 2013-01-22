@@ -1,4 +1,6 @@
 class IncidentsController < ApplicationController
+  skip_before_filter :authenticate_user!, :only => :create
+
   def index
     @incidents = Incident.page(params[:page]).order('updated_at DESC')
   end

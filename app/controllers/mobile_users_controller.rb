@@ -1,5 +1,5 @@
 class MobileUsersController < ApplicationController
-
+  skip_before_filter :authenticate_user!
   # POST /mobile_users
   # POST /mobile_users.json
   def create

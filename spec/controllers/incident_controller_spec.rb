@@ -29,6 +29,8 @@ describe IncidentsController do
   end
 
   describe "GET 'index'" do
+    login_admin
+
     it "returns http success" do
       get 'index'
       response.should be_success

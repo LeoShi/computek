@@ -1,12 +1,20 @@
+# Read about factories at https://github.com/thoughtbot/factory_girl
+
 FactoryGirl.define do
-  factory :mobile_user do
-    name "John"
-    surname "Doe"
-    mobile_contact "12344"
-    alternative_contact "45321"
-    next_of_kin "Brain"
-    mobile_of_kin "678945"
-    physical_address "17 Melle street"
-    occupants_in_house_hold "unknown"
+  factory :user do
+    sequence(:email) {|n| "email#{n}@factory.com" }
+    password "123456"
+    name "Admin"
+    phone "123456"
+
+    factory :admin do
+      role "admin"
+    end
+    factory :captain do
+      role "captain"
+    end
+    factory :control_officer do
+      role "control_officer"
+    end
   end
 end
