@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     #
-    #   user ||= User.new # guest user (not logged in)
+    user ||= User.new(:role => "guest") # guest user (not logged in)
     #   if user.admin?
     #     can :manage, :all
     #   else
@@ -24,6 +24,25 @@ class Ability
     #   can :update, Article, :published => true
     #
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
-    can :manage, :all if user.role == "admin"
+    cannot :create_user, User if user.role == "control_officer"
+    send(user.role.to_sym, user)
   end
+
+  def control_officer user
+    can :manage, Incident
+    can [:read, :update], User, :id => user.id
+  end
+
+  def captain user
+    can :manage, :all
+  end
+
+  def admin user
+    captain user
+  end
+
+  def guest user
+
+  end
+
 end

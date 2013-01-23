@@ -29,6 +29,17 @@
           <a class="brand" href="#">SAPS SERVICE DESK</a>
           <div class="container nav-collapse">
             <% if user_signed_in?%>
+              <ul class="nav">
+                  <% if can? :manage, Incident %>
+                    <li ><a href="/incidents">Incidents</a></li>
+                  <% end %>
+                  <% if can? :manage, User %>
+                    <li><a href="/users/sign_up">Admin</a></li>
+                  <% end %>
+                  <% if can? :update, User, :id => current_user.id %>
+                    <li><a href="#">My Profile</a></li>
+                  <% end %>
+                </ul>
                 <ul class="nav pull-right">
                   <li><a><i class="icon-user"></i> Logged in as: <span id="top-nav-username">
                       <%= current_user.email %>

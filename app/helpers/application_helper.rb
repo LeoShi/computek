@@ -4,7 +4,7 @@ module ApplicationHelper
       when "admin"
        return User::ROLES
       when "captain"
-       return User::ROLES.last
+       return [User::ROLES.last]
       else
        return []
     end

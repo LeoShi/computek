@@ -45,7 +45,6 @@
         <div class="control-group">
           <%= f.label :role, :class => "control-label" %>
           <div class="controls">
-            <!--<%= f.collection_select :role, User::ROLES, :to_s, :humanize %>-->
             <%= f.collection_select :role, role_list, :to_s, :humanize %>
           </div>
         </div>
