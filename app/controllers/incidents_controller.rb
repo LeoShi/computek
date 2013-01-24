@@ -13,4 +13,17 @@ class IncidentsController < ApplicationController
       render :json => incident.errors, :status => :unprocessable_entity
     end
   end
+
+  def edit
+    @incident = Incident.find(params[:id])
+  end
+
+  def update
+    @incident = Incident.find(params[:id])
+    if @incident.update_attributes(params[:incident])
+      redirect_to({:action => "edit"}, :notice => 'Incident was successfully updated.')
+    else
+      render :action => "edit"
+    end
+  end
 end

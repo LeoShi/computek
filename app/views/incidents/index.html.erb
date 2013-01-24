@@ -19,10 +19,10 @@
       <td><%= incident.mobile_user.name %></td>
       <td><%= incident.location.street %></td>
       <td><%= incident.mobile_user.mobile_contact %></td>
-      <td>Open</td>
-      <td>Srg. Kokore</td>
+      <td><%= incident.status %></td>
+      <td><%= incident.user.name %></td>
       <td><%= incident.updated_at %></td>
-      <td><%= incident.reference %></td>
+      <td><%= link_to incident.reference, edit_incident_path(incident) %></td>
     </tr>
     <% end %>
   </tbody>
