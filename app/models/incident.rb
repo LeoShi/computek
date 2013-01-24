@@ -15,10 +15,19 @@ class Incident < ActiveRecord::Base
 
   validates_presence_of :location, :mobile_user, :category
   before_create :generate_reference_number
+  before_save :default_values
 
   private
+  def default_values
+    save_default_user
+    self.status ||= STATUS[0]
+  end
+
   def generate_reference_number
     self.reference = "%s%d" % [CATEGORY[self.category], Time.now.to_i]
   end
 
+  def save_default_user
+    self.user ||= User.find_by_role("control_officer") if self.user.nil?
+  end
 end
