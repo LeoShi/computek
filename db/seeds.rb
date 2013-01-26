@@ -16,18 +16,20 @@ mobile_user2 = MobileUser.create({"name" => "Bob", "surname" => "Kelx",
                            "next_of_kin" => "kly", "mobile_of_kin" => "0987654321",
                            "physical_address" => "SPLICE", "occupants_in_house_hold" => "abc12"})
 
+User.create(:email => "admin@gmail.com", :password => "c0ns0le!", :name => "Admin", :phone => "123456", :role => "admin")
+User.create(:email => "captain@gmail.com", :password => "c0ns0le!", :name => "Captain", :phone => "123456", :role => "captain")
+co = User.create(:email => "co@gmail.com", :password => "c0ns0le!", :name => "Control Officer", :phone => "123456", :role => "control_officer")
+
+
 Incident.create({:category => "House Break in", :mobile_user => mobile_user1,
                  :location_attributes => {:latitude => "-26.1940509", :longitude => "28.0359692",
-                                          :street => "17 Melle Street, Johannesburg 2000, South Africa"}})
+                                          :street => "17 Melle Street, Johannesburg 2000, South Africa"}, :user =>co })
 
 Incident.create({:category => "House Break in", :mobile_user => mobile_user2,
                  :location_attributes => {:latitude => "40.714224", :longitude => "-73.961452",
-                                          :street => "275-291 Bedford Ave, Brooklyn, NY 11211, USA"}})
+                                          :street => "275-291 Bedford Ave, Brooklyn, NY 11211, USA"}, :user =>co})
 
 Incident.create({:category => "House Break in", :mobile_user => mobile_user1,
                  :location_attributes => {:latitude => "-26.1840509", :longitude => "28.0359692",
-                                          :street => "12 Girton Road, Johannesburg 2193, South Africa"}})
+                                          :street => "12 Girton Road, Johannesburg 2193, South Africa"}, :user =>co})
 
-User.create(:email => "admin@gmail.com", :password => "c0ns0le!", :name => "Admin", :phone => "123456", :role => "admin")
-User.create(:email => "captain@gmail.com", :password => "c0ns0le!", :name => "Captain", :phone => "123456", :role => "captain")
-User.create(:email => "co@gmail.com", :password => "c0ns0le!", :name => "Control Officer", :phone => "123456", :role => "control_officer")
