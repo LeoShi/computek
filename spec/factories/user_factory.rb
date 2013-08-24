@@ -13,8 +13,8 @@ FactoryGirl.define do
     factory :captain do
       role "captain"
     end
-    factory :dispatcher do
-      role "dispatcher"
+    factory :control_officer do
+      role "control_officer"
     end
   end
 end

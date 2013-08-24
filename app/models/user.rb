@@ -11,5 +11,5 @@ class User < ActiveRecord::Base
 
   validates_presence_of :name, :phone
 
-  ROLES = %w[admin captain dispatcher]
+  ROLES = %w[admin captain control_officer]
 end

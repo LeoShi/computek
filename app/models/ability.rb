@@ -24,11 +24,11 @@ class Ability
     #   can :update, Article, :published => true
     #
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
-    cannot :create_user, User if user.role == "dispatcher"
+    cannot :create_user, User if user.role == "control_officer"
     send(user.role.to_sym, user)
   end
 
-  def dispatcher user
+  def control_officer user
     can :manage, Incident
     can [:read, :update], User, :id => user.id
   end
