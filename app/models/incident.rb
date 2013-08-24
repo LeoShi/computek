@@ -28,6 +28,6 @@ class Incident < ActiveRecord::Base
   end
 
   def save_default_user
-    self.user ||= User.find_by_role("control_officer") if self.user.nil?
+    self.user ||= User.find_by_role("dispatcher") if self.user.nil?
   end
 end

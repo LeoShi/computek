@@ -11,7 +11,7 @@ describe ApplicationHelper do
 
     it "captain should see only control_officer role" do
       nil.stub(:role => "captain")
-      helper.role_list.should eq ["control_officer"]
+      helper.role_list.should eq ["dispatcher"]
       end
 
     it "control_officer should not see any of the role" do

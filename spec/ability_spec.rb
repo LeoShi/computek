@@ -8,7 +8,7 @@ describe "User" do
     let(:user){ nil }
 
     context "when is a control officer" do
-      let(:user){ create(:control_officer) }
+      let(:user){ create(:dispatcher) }
 
       it{ should_not be_able_to(:create_user, user) }
     end

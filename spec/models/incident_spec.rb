@@ -6,7 +6,7 @@ describe Incident do
   end
   describe "After create Incident successfully" do
     before (:each) do
-      create(:control_officer)
+      create(:dispatcher)
       @valid_incident_data = {:category => "House Break in", :mobile_user => @mobile_user,
                         :location_attributes => {:latitude => "-26.1940509", :longitude => "28.0359692",
                                                  :street => "17 Melle Street, Johannesburg 2000, South Africa"}}
