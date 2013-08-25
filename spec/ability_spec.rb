@@ -14,7 +14,7 @@ describe "User" do
     end
 
     context "when is a captain" do
-      let(:user){ create(:captain) }
+      let(:user){ create(:dispatcher) }
 
       it{ should be_able_to(:create_user, user) }
     end

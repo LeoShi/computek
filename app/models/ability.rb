@@ -33,12 +33,12 @@ class Ability
     can [:read, :update], User, :id => user.id
   end
 
-  def captain user
+  def dispatcher user
     can :manage, :all
   end
 
   def admin user
-    captain user
+    dispatcher user
   end
 
   def guest user
