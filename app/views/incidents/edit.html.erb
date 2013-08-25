@@ -24,12 +24,14 @@
       </div>
     </div>
 
-    <div class="control-group">
-      <%= f.label :user_id, :class => "control-label" %>
-      <div class="controls">
-        <%= f.collection_select :user_id, User.find_all_by_role(:control_officer), :id, :name%>
-      </div>
-    </div>
+    <% if can? :update_incident_user, current_user %>
+        <div class="control-group">
+          <%= f.label :user_id, :class => "control-label" %>
+          <div class="controls">
+            <%= f.collection_select :user_id, User.find_all_by_role(:control_officer), :id, :name%>
+          </div>
+        </div>
+    <% end %>
 
     <div class="control-group">
       <%= f.label :status, :class => "control-label" %>

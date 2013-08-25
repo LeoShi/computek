@@ -25,6 +25,7 @@ class Ability
     #
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
     cannot :create_user, User if user.role == "control_officer"
+    cannot :update_incident_user, User if user.role == "control_officer"
     send(user.role.to_sym, user)
   end
 
