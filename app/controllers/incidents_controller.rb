@@ -2,13 +2,22 @@ class IncidentsController < ApplicationController
   skip_before_filter :authenticate_user!, :only => :create
 
   def index
-    @incidents = Incident.page(params[:page]).order('updated_at DESC')
+    if current_user.role.to_sym  == :control_officer
+      @incidents = Incident.where(:user_id => current_user.id).page(params[:page]).order('updated_at DESC')
+    else
+      @incidents = Incident.page(params[:page]).order('updated_at DESC')
+    end
+
+    respond_to do |format|
+      format.html
+      format.any(:xml, :json) { render request.format.to_sym => @incidents }
+    end
   end
 
   def create
     incident = Incident.new(params[:incident])
     if incident.save
-      render :json => {:reference => incident.reference}.to_json, :status => :created
+      render :json => {:reference => incident.reference, :id => incident.id}.to_json, :status => :created
     else
       render :json => incident.errors, :status => :unprocessable_entity
     end
@@ -21,7 +30,12 @@ class IncidentsController < ApplicationController
   def update
     @incident = Incident.find(params[:id])
     if @incident.update_attributes(params[:incident])
-      redirect_to({:action => "edit"}, :notice => 'Incident was successfully updated.')
+      respond_to do |format|
+        format.html do
+          redirect_to({:action => "edit"}, :notice => 'Incident was successfully updated.')
+        end
+        format.any(:xml, :json) {render request.format.to_sym => @incident, :status => :created }
+      end
     else
       render :action => "edit"
     end

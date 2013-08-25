@@ -45,4 +45,24 @@ describe IncidentsController do
     end
   end
 
+  describe "update" do
+    let(:valid_incident_data) { {:category => "House Break in", :mobile_user_id => create(:mobile_user).id,
+                                 :location_attributes => {:latitude => "-26.1940509", :longitude => "28.0359692",
+                                                          :street => "17 Melle Street, Johannesburg 2000, South Africa"}}}
+
+    login_control_officer
+
+    it "should update incident success" do
+      post 'create', {:incident => valid_incident_data, :format => :json}
+      response.should be_success
+      result = JSON.parse(response.body)
+
+      put 'update', {:id => result['id'], :incident => {:status => 'Withdrawn'}, :format => :json}
+      response.should be_success
+      result = JSON.parse(response.body)
+      result['status'].should eq('Withdrawn')
+    end
+
+  end
+
 end
