@@ -7,7 +7,7 @@ describe Incident do
   describe "After create Incident successfully" do
     before (:each) do
       create(:control_officer)
-      @valid_incident_data = {:category => "House Break in", :mobile_user => @mobile_user,
+      @valid_incident_data = {:category => "Hijack", :mobile_user => @mobile_user,
                         :location_attributes => {:latitude => "-26.1940509", :longitude => "28.0359692",
                                                  :street => "17 Melle Street, Johannesburg 2000, South Africa"}}
     end
@@ -20,7 +20,7 @@ describe Incident do
     end
     it "should generate reference properly" do
       incident.reference.length.should eq(13)
-      incident.reference.should start_with("HSB")
+      incident.reference.should start_with("HIJ")
     end
 
     it "should have default handling officer" do

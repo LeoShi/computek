@@ -1,9 +1,12 @@
 class Incident < ActiveRecord::Base
-  CATEGORY = {"House Break in" => "HSB", "Domestic Violence" => "DOV",
-              "Hijack" => "HIJ", "Suspects" => "SUS",
-              "Animal abuse" => "AAB", "Shooting" => "SHO",
-              "Murder" => "MUR", "Illegal Firearm" => "ILF",
-              "Drug Dealing" => "DRD", "Drug Use" => "DRU"}
+  CATEGORY = {"Abduction" => "ABD", "Domestic Violence" => "DOV",
+              "Armed Robbery" => "ARB", "Hijack" => "HIJ",
+              "Arson" => "ARS", "Shooting" => "SHO",
+              "Assault" => "ASL", "Murder" => "MUR",
+              "Attempted Murder" => "ATM", "Rape" => "RAP",
+              "Bombing" => "BOM", "Fighting" => "FIG",
+              "Terror Attack" => "TAT", "Terror Suspect" => "TSU"
+  }
   STATUS = ["Open", "In Progress", "Suspended", "Withdrawn", "Closed"]
 
   attr_accessible :category, :mobile_user, :mobile_user_id, :status,

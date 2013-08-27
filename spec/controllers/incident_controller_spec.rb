@@ -8,11 +8,13 @@ describe IncidentsController do
                                                     :street => "17 Melle Street, Johannesburg 2000, South Africa"}}}
     let(:invalid_incident_data) { {:category => "House Break in", :mobile_user => stub_model(MobileUser)}}
 
-    ['House Break in,HSB','Domestic Violence,DOV',
-     'Hijack,HIJ', 'Suspects,SUS',
-     'Animal abuse,AAB', 'Shooting,SHO',
-     'Murder,MUR', 'Illegal Firearm,ILF',
-     'Drug Dealing,DRD', 'Drug Use,DRU'].each do |item|
+    ['Abduction,ABD','Domestic Violence,DOV',
+     'Hijack,HIJ', 'Armed Robbery,ARB',
+     'Arson,ARS', 'Shooting,SHO',
+     'Assault,ASL', 'Murder,MUR',
+     'Attempted Murder,ATM', 'Rape,RAP',
+     'Bombing,BOM', 'Fighting,FIG',
+     'Terror Attack,TAT', 'Terror Suspect,TSU'].each do |item|
       incident_name, abbr = item.split(',')
       it "with '#{incident_name}'" do
         post 'create', {:incident => valid_incident_data.merge(:category => incident_name), :format => :json}
