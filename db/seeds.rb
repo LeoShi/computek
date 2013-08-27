@@ -17,19 +17,19 @@ mobile_user2 = MobileUser.create({"name" => "Bob", "surname" => "Kelx",
                            "physical_address" => "SPLICE", "occupants_in_house_hold" => "abc12"})
 
 User.create(:email => "admin@gmail.com", :password => "c0ns0le!", :name => "Admin", :phone => "123456", :role => "admin")
-User.create(:email => "captain@gmail.com", :password => "c0ns0le!", :name => "Captain", :phone => "123456", :role => "captain")
+User.create(:email => "dc@gmail.com", :password => "c0ns0le!", :name => "Dispatcher", :phone => "123456", :role => "dispatcher")
 co = User.create(:email => "co@gmail.com", :password => "c0ns0le!", :name => "Control Officer", :phone => "123456", :role => "control_officer")
 
 
-Incident.create({:category => "House Break in", :mobile_user => mobile_user1,
+Incident.create({:category => "Hijack", :mobile_user => mobile_user1,
                  :location_attributes => {:latitude => "-26.1940509", :longitude => "28.0359692",
                                           :street => "17 Melle Street, Johannesburg 2000, South Africa"}, :user =>co })
 
-Incident.create({:category => "House Break in", :mobile_user => mobile_user2,
+Incident.create({:category => "Armed Robbery", :mobile_user => mobile_user2,
                  :location_attributes => {:latitude => "40.714224", :longitude => "-73.961452",
                                           :street => "275-291 Bedford Ave, Brooklyn, NY 11211, USA"}, :user =>co})
 
-Incident.create({:category => "House Break in", :mobile_user => mobile_user1,
+Incident.create({:category => "Arson", :mobile_user => mobile_user1,
                  :location_attributes => {:latitude => "-26.1840509", :longitude => "28.0359692",
                                           :street => "12 Girton Road, Johannesburg 2193, South Africa"}, :user =>co})
 
