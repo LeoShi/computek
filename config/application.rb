@@ -61,5 +61,11 @@ module Computek
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Devise no longer responds to JSON by default from 2.2
+    config.to_prepare do
+      DeviseController.respond_to :html, :json
+    end
+
   end
 end
