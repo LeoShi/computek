@@ -1,9 +1,20 @@
 Computek::Application.routes.draw do
 
-  devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification' }, :controllers => { :registrations => "registrations" }
+  devise_for :users,
+             :path_names => { :sign_in => 'login', :sign_out => 'logout',
+                              :password => 'secret', :confirmation => 'verification' },
+             :controllers => { :registrations => "registrations" }
+
+  namespace :api do
+    namespace :v1 do
+      resources :tokens,:only => [:create, :destroy]
+    end
+  end
+
 
   resources :incidents, :except => [:destroy]
   resources :mobile_users, :only => [:create]
+
 
 
   # The priority is based upon order of creation:
