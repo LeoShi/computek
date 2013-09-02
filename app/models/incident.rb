@@ -20,6 +20,18 @@ class Incident < ActiveRecord::Base
   before_create :generate_reference_number
   before_save :default_values
 
+  def as_json(options={})
+    {:id => self.id,
+     :category => CATEGORY.select{|_, value| value == self.category}.first.first,
+     :location => self.location.street,
+     :updated_at => self.updated_at.to_s(:short),
+     :created_at => self.created_at.to_s(:short),
+     :reference => self.reference,
+     :status => self.status,
+     :mobile_user_contact => self.mobile_user.mobile_contact,
+     :mobile_user_name => self.mobile_user.name }
+  end
+
   private
   def default_values
     save_default_user
