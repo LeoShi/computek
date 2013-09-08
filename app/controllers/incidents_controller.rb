@@ -8,6 +8,8 @@ class IncidentsController < ApplicationController
       @incidents = Incident.page(params[:page]).order('updated_at DESC')
     end
 
+    @incidents = @incidents.where("updated_at > ?", params[:last_update_time]) if params[:last_update_time]
+
     respond_to do |format|
       format.html
       format.any(:xml, :json) { render request.format.to_sym => @incidents }

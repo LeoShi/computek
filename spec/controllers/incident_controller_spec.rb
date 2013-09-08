@@ -48,7 +48,7 @@ describe IncidentsController do
   end
 
   describe "update" do
-    let(:valid_incident_data) { {:category => "House Break in", :mobile_user_id => create(:mobile_user).id,
+    let(:valid_incident_data) { {:category => "Abduction", :mobile_user_id => create(:mobile_user).id,
                                  :location_attributes => {:latitude => "-26.1940509", :longitude => "28.0359692",
                                                           :street => "17 Melle Street, Johannesburg 2000, South Africa"}}}
 

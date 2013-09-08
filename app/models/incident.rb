@@ -22,7 +22,7 @@ class Incident < ActiveRecord::Base
 
   def as_json(options={})
     {:id => self.id,
-     :category => CATEGORY.select{|_, value| value == self.category}.first.first,
+     :category => CATEGORY.select{|name, _| name == self.category}.first.first,
      :location => self.location.street,
      :updated_at => self.updated_at.to_s(:short),
      :created_at => self.created_at.to_s(:short),
