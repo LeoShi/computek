@@ -1,6 +1,6 @@
 namespace :deploy do
   desc "deploy app in production env"
-  task :prod => [:migrate_db, :pre_compile, :restart_app] do
+  task :prod => [:migrate_db, :pre_compile, :build_missing_paperclip_styles, :restart_app] do
     info "Deploy app successfully."
   end
 
@@ -18,6 +18,11 @@ namespace :deploy do
     run "rake assets:precompile RAILS_ENV=production"
     info "finished precompile."
 
+  end
+
+  task :build_missing_paperclip_styles do
+    info "build_missing_paperclip_styles..."
+    run "RAILS_ENV=production bundle exec rake paperclip:refresh:missing_styles"
   end
 
   task :restart_app do

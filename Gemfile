@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'will_paginate', '~> 3.0'
 gem 'devise', '~> 2.2.2'
 gem "cancan"
+gem "paperclip", "~> 3.0"
 
 
 # Gems used only for assets and not required

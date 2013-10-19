@@ -11,6 +11,15 @@ class Incident < ActiveRecord::Base
 
   attr_accessible :category, :mobile_user, :mobile_user_id, :status,
                   :reference, :location_attributes, :location, :user, :user_id
+
+  attr_accessible :avatar
+  has_attached_file :avatar,
+                    :styles => { :medium => "300x300>", :thumb => "100x100>" },
+                    :default_url => "/assets/missing.png"
+  validates_attachment :avatar,
+                       :content_type => { :content_type => "image/jpeg" },
+                       :size => { :in => 0..10.megabytes }
+
   belongs_to :mobile_user
   belongs_to :user
   has_one :location
