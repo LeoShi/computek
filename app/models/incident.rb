@@ -17,7 +17,7 @@ class Incident < ActiveRecord::Base
                     :styles => { :medium => "300x300>", :thumb => "100x100>" },
                     :default_url => "/assets/missing.png"
   validates_attachment :avatar,
-                       :content_type => { :content_type => "image/jpeg" },
+                       :content_type => { :content_type => /(image\/jpeg)|(application\/octet-stream)/ },
                        :size => { :in => 0..10.megabytes }
 
   belongs_to :mobile_user
