@@ -1,6 +1,6 @@
 namespace :deploy do
   desc "deploy app in production env"
-  task :prod => [:migrate_db, :pre_compile, :build_missing_paperclip_styles, :restart_app] do
+  task :prod => [:migrate_db, :pre_compile, :restart_app] do
     info "Deploy app successfully."
   end
 
